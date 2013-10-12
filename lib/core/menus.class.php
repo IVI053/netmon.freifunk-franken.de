@@ -59,8 +59,6 @@ class Menus extends Permission {
 		$submenu = array();
 		$subsubmenu = array();
 		$submenu[] = array('name'=>'Karte', 'href'=>'map.php');
-		$subsubmenu[] = array('name'=>'FFMAP-D3', 'href'=>'ffmap-d3/nodes.html');
-		$subsubmenu[] = array('name'=>'Tinc-Topologie', 'href'=>'http://dev.freifunk-ol.de/topo/batvpn.png');
 		$submenu[] = $subsubmenu;
 		$menu[] = $submenu;
 		
@@ -68,8 +66,8 @@ class Menus extends Permission {
 		$subsubmenu = array();
 		$submenu[] = array('name'=>'Router', 'href'=>'routerlist.php');			
 		$subsubmenu[] = array('name'=>'Neue Router', 'href'=>'routers_trying_to_assign.php');
-		if (Permission::checkPermission(PERM_USER)) //if user is logged in and has permission "user"
-			$subsubmenu[] = array('name'=>'Router anlegen', 'href'=>'routereditor.php?section=new');
+		//if (Permission::checkPermission(PERM_USER)) //if user is logged in and has permission "user"
+		//	$subsubmenu[] = array('name'=>'Router anlegen', 'href'=>'routereditor.php?section=new');
 		$submenu[] = $subsubmenu;
 		$menu[] = $submenu;
 
