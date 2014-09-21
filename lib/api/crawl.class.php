@@ -96,20 +96,20 @@ class Crawl {
 					echo $e->getMessage();
 				}
 				
-				RrdTool::updateRouterBatmanAdvOriginatorLinkQuality($data['router_id'], $bat_adv_orig['originator'], $bat_adv_orig['link_quality'], time());
+				//RrdTool::updateRouterBatmanAdvOriginatorLinkQuality($data['router_id'], $bat_adv_orig['originator'], $bat_adv_orig['link_quality'], time());
 			}
-		}
+        }
 		
 		$originator_count=count($data['batman_adv_originators']);
 		RrdTool::updateRouterBatmanAdvOriginatorsCountHistory($data['router_id'], $originator_count);
 		
-		$average_link_quality = 0;
+		/*$average_link_quality = 0;
 		foreach($data['batman_adv_originators'] as $originator) {
 			$average_link_quality=$average_link_quality+$originator['link_quality'];
 		}
 		
 		$average_link_quality=($average_link_quality/$originator_count);
-		RrdTool::updateRouterBatmanAdvOriginatorLinkQuality($data['router_id'], "average", $average_link_quality, time());
+        RrdTool::updateRouterBatmanAdvOriginatorLinkQuality($data['router_id'], "average", $average_link_quality, time());*/
 		
 		RrdTool::updateRouterClientCountHistory($data['router_id'], $data['client_count']);
 	}
