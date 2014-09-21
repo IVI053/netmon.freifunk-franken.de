@@ -45,6 +45,7 @@
 	$GLOBALS['community_name'] = "Freifunk Deinestadt";
 	$GLOBALS['community_slogan'] = "Die freie WLAN-Community aus deiner Stadt • Freie Netze für alle!";
 		
+if (!$crawler) {
 	//check if netmons root path and the config path is writable to created temp dirs and config file
 	$check_writable[] = '/';
 	$check_writable[] = '/config/';
@@ -92,6 +93,7 @@
 	//start php session and set content type and timezone
 	session_start();
 	header("Content-Type: text/html; charset=UTF-8");
+}
 	date_default_timezone_set('Europe/Berlin');
 	
 	//include important configuration files
