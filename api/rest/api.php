@@ -79,6 +79,17 @@
 					$domxmldata = $router->getDomXMLElement($this->domxml);
 					$this->response($this->finishxml($domxmldata), 200);
 				}
+			} elseif($this->get_request_method() == "GET" && isset($this->_request['mac'])) {
+				$router = new Router();
+				$router->setMac($this->_request['mac']);
+				if(!$router->fetch()) {
+					$this->error_code = 1;
+					$this->error_message = "Router not found";
+					$this->response($this->finishxml(), 404);
+				} else {
+					$domxmldata = $router->getDomXMLElement($this->domxml);
+					$this->response($this->finishxml($domxmldata), 200);
+				}
 			}
 		}
 		
